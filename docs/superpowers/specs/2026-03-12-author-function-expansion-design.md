@@ -155,20 +155,23 @@ The new 55-scene flow is a complete rewrite of the SCENES array. The mapping fro
 | — | 46 | **NEW** — Ship Corridor, Manifesto + Slop |
 | — | 47 | **NEW** — Study, Anxiety book |
 | 37 | 48 | Loveless (template changed from gallery to office — groups all "inspiration" content in the office) |
-| 38 | 49 | Carol poster + carol |
-| 39 | 50 | Pluribus |
+| 38+39 | 49 | **MERGED** — Carol Poster (was gallery) + Carol (was office) into one scene in office template (two objects) |
+| 40 | 50 | Pluribus |
 | — | 51 | **NEW** — Observatory, new ending |
 | — | 52 | **NEW** — Observatory, ending excerpt |
 | — | 53 | **NEW** — Observatory, Anthropic Code |
 | 41 | 54 | Thank you / links |
 
-**Summary:** 42 old scenes → 1 dropped (exterior), 3 merged (13+14, 17+18, 34+35) = 38 unique old scenes kept + 17 new scenes = 55 total.
+**Summary:** 42 old scenes → 1 dropped (exterior), 4 merged (13+14, 17+18, 34+35, 38+39) = 37 unique old scenes kept + 18 new scenes = 55 total.
 
 ### Deliberate Changes to Existing Scenes
 
 - **Scene 8 (Coover):** Object type changed from `newspaper` to `wall-poster`. The newspaper type's sepia filter and clipping are less appropriate for the Coover article image.
 - **Scene 22 (Twining):** Template changed from `room-workshop` to `room-study`. Groups the book with the other book-display scenes in the study.
+- **Scene 14 (Knight):** Object type changed from `monitor-screen` to `book-cover`. Gabriel Knight is displayed as a book/game box rather than a screen image.
 - **Scene 48 (Loveless):** Template changed from `room-gallery` to `room-office`. Groups all end-of-talk inspiration content in the office room.
+- **Scene 49 (Carol):** Two previously separate scenes (Carol Poster in gallery + Carol in office) merged into one office scene with two objects.
+- **Scene 20 (Track Changes):** Uses root-level `trackchanges.jpg` (same file as in the original deck). The `additions/trackchanges.jpg` file is not used.
 - **Scenes 14, 17, 35, 37, 46, 49:** These scenes contain two objects each. See "Multi-Object Scenes" below.
 
 ## Multi-Object Scenes
@@ -235,7 +238,7 @@ Each row is annotated with its origin: **NEW**, **EXISTING (was #N)**, or **MERG
 | 28 | EXISTING (was #27) | Arcade | room-arcade | walk-right | Undertale | monitor-screen (undertale.jpg) | use |
 | 29 | EXISTING (was #28) | Arcade | room-arcade | fade | Bad time | monitor-screen (badtime.png) | use |
 | 30 | EXISTING (was #29) | Arcade | room-arcade | fade | Undertale humanity | monitor-screen (undertalehumanity.png) | look |
-| 31 | EXISTING (was #30) | Ruins | room-ruins | diamond | "...brings us to the end of the world" | monitor-screen (krzruin.png) | look |
+| 31 | EXISTING (was #30) | Ruins | room-ruins | fade-slow | "...brings us to the end of the world" | monitor-screen (krzruin.png) | look |
 | 32 | EXISTING (was #31) | Ruins | room-ruins | fade | Toxic geek culture | book-cover (geek.jpg) | look |
 | 33 | EXISTING (was #32) | Ruins | room-ruins | fade | Aftermath / Epstein quote | monitor-screen (aftermath.png) | look |
 | 34 | EXISTING (was #33) | Study (dim) | room-study, palette: study-crisis | walk-right | Fanboy | book-cover (fanboy.jpg) | look |
@@ -263,7 +266,7 @@ Each row is annotated with its origin: **NEW**, **EXISTING (was #N)**, or **MERG
 | 46 | **NEW** | Ship Corridor | room-ship-corridor | fade | Claw Manifesto / Slop | wall-poster (additions/clawmanifesto.png) + monitor-screen (additions/claw_slop.png) | look |
 | 47 | **NEW** | Study | room-study | walk-right | Anxiety | book-cover (additions/anxiety.png) | look |
 | 48 | EXISTING (was #37) | Office | room-office | walk-right | Loveless / research creation | book-pedestal (loveless.jpg) | look |
-| 49 | EXISTING (was #38+#39) | Office | room-office | fade | Carol and the End of the World | wall-poster (CarolPoster.jpg) + monitor-screen (carol.webp) | look |
+| 49 | MERGED (was #38+#39) | Office | room-office | fade | Carol and the End of the World | wall-poster (CarolPoster.jpg) + monitor-screen (carol.webp) | look |
 | 50 | EXISTING (was #40) | Office | room-office | fade | E pluribus | monitor-screen (pluribus.jpg) | look |
 | 51 | **NEW** | The Observatory | room-observatory | walk-right | New ending — looking forward | monitor-screen (additions/newending.png) | look |
 | 52 | **NEW** | The Observatory | room-observatory | fade | Ending excerpt | wall-poster (additions/endingexcerpt.png) | look |
@@ -324,7 +327,7 @@ This spec assumes Option A. If Option B is desired, the sprite system needs a `s
 ### JavaScript
 - `js/scenes.js` — Replace SCENES array with new 55-scene flow
 - `js/engine.js` — Add `iframe-fullscreen` object type in `createObject()`, update title
-- `js/autoplay.js` — Add per-scene duration override (scene 42 = 60s fixed), animation pause/resume logic via postMessage listener
+- `js/autoplay.js` — Update `TOTAL_MS` from `12 * 60 * 1000` to `45 * 60 * 1000`. Add `SCENE_DURATION_OVERRIDES` map. Modify the four timing calculation sites (lines ~82, ~132, ~140, ~167) to account for per-scene overrides. Add animation pause/resume logic via postMessage listener.
 - `js/preloader.js` — Collect image paths from new scenes (skip `iframe-fullscreen` objects — HTML files are not preloadable as images)
 
 ### HTML
