@@ -109,12 +109,13 @@ The new 55-scene flow is a complete rewrite of the SCENES array. The mapping fro
 | — | 1 | **NEW** — Library, Foucault quote |
 | — | 2 | **NEW** — Library, Ted Nelson quote |
 | 1 | — | **DROPPED** — UCF exterior arrival (cut for pacing; talk now opens with theoretical framing) |
-| 2 | 3 | Lecture Hall intro (was reading stats intro) |
-| 3 | 4 | Reading stats one |
-| 4 | 5 | Reading stats two |
-| 5 | 6 | Data center / libgen |
-| 6 | 7 | Data center / AI training |
-| 7 | 8 | Archive / Coover (object type changed from `newspaper` to `wall-poster` for visual consistency) |
+| 2 | 3 | Lecture Hall intro (dialogue only, readingstatsone.png moved to scene 4) |
+| 2 | 4 | readingstatsone.png (image from old scene 2, presented as its own scene) |
+| 3 | 5 | Reading stats two (readingstatstwo.png) |
+| 4 | 6 | Data center / LibGen (libgen.png) |
+| 5 | 7 | Data center / Books3 AI training (gen_slide21_img2.png) |
+| 6 | 8 | Archive / Coover (coover.png, object type changed from `newspaper` to `wall-poster`) |
+| 7 | — | Track Changes — replaced by NEW scenes 20-21 in Typing Office (image trackchanges.jpg reused) |
 | 8 | 9 | Corridor |
 | 9 | 10 | Study / quest |
 | 10 | 11 | Study / python |
@@ -162,7 +163,7 @@ The new 55-scene flow is a complete rewrite of the SCENES array. The mapping fro
 | — | 53 | **NEW** — Observatory, Anthropic Code |
 | 41 | 54 | Thank you / links |
 
-**Summary:** 42 old scenes → 1 dropped (exterior), 4 merged (13+14, 17+18, 34+35, 38+39) = 37 unique old scenes kept + 18 new scenes = 55 total.
+**Summary:** 42 old scenes → 1 dropped (exterior #1), 1 replaced (track changes #7 → new 20-21), 4 merged (13+14, 17+18, 34+35, 38+39), old #2 split into 2 scenes (3+4) = 36 unique old scenes kept + 19 new scenes = 55 total.
 
 ### Deliberate Changes to Existing Scenes
 
@@ -171,6 +172,10 @@ The new 55-scene flow is a complete rewrite of the SCENES array. The mapping fro
 - **Scene 14 (Knight):** Object type changed from `monitor-screen` to `book-cover`. Gabriel Knight is displayed as a book/game box rather than a screen image.
 - **Scene 48 (Loveless):** Template changed from `room-gallery` to `room-office`. Groups all end-of-talk inspiration content in the office room.
 - **Scene 49 (Carol):** Two previously separate scenes (Carol Poster in gallery + Carol in office) merged into one office scene with two objects.
+- **Scene 15 (AGS):** Template changed from `room-workshop` to `room-game-room`. Groups the authoring tool with the other game scenes.
+- **Scene 16 (Flash book):** Template changed from `room-computer-lab` to `room-workshop`. Flash era content consolidated in the workshop.
+- **Scene 17 (Flash merged):** Template changed from `room-computer-lab` to `room-workshop` (same reason).
+- **Scene 23 (Twine interface):** Template changed from `room-workshop` to `room-computer-lab`. Twine editor is more natural on a computer screen.
 - **Scene 20 (Track Changes):** Uses root-level `trackchanges.jpg` (same file as in the original deck). The `additions/trackchanges.jpg` file is not used.
 - **Scenes 14, 17, 35, 37, 46, 49:** These scenes contain two objects each. See "Multi-Object Scenes" below.
 
@@ -200,12 +205,12 @@ Each row is annotated with its origin: **NEW**, **EXISTING (was #N)**, or **MERG
 | 0 | EXISTING (was #0) | Title | room-title | none | New title: "The Author Function..." | Title overlay | — |
 | 1 | **NEW** | The Library | room-library | iris | Foucault quote on the author function | wall-text | look |
 | 2 | **NEW** | The Library | room-library | fade | Ted Nelson: "Computers don't actually think..." | wall-text | talk |
-| 3 | EXISTING (was #2) | Lecture Hall | room-lecture-hall | walk-right | Reading stats intro | — | talk |
-| 4 | EXISTING (was #3) | Lecture Hall | room-lecture-hall | fade | YouGov stats | monitor-screen (readingstatsone.png) | look |
-| 5 | EXISTING (was #4) | Lecture Hall | room-lecture-hall | fade | More stats | monitor-screen (readingstatstwo.png) | look |
-| 6 | EXISTING (was #5) | Data Center | room-data-center | walk-right | "Something is reading" / Books3 | monitor-screen (libgen.png) | look |
-| 7 | EXISTING (was #6) | Data Center | room-data-center | fade | AI training data | monitor-screen (gen_slide21_img2.png) | look |
-| 8 | EXISTING (was #7) | Archive | room-archive | walk-right | Coover, end of books 1992 | wall-poster (coover.png) | look |
+| 3 | EXISTING (was #2, dialogue only) | Lecture Hall | room-lecture-hall | walk-right | Reading stats intro | — | talk |
+| 4 | EXISTING (was #2, image) | Lecture Hall | room-lecture-hall | fade | YouGov stats | monitor-screen (readingstatsone.png) | look |
+| 5 | EXISTING (was #3) | Lecture Hall | room-lecture-hall | fade | More stats | monitor-screen (readingstatstwo.png) | look |
+| 6 | EXISTING (was #4) | Data Center | room-data-center | walk-right | "Something is reading" / LibGen | monitor-screen (libgen.png) | look |
+| 7 | EXISTING (was #5) | Data Center | room-data-center | fade | AI training data | monitor-screen (gen_slide21_img2.png) | look |
+| 8 | EXISTING (was #6) | Archive | room-archive | walk-right | Coover, end of books 1992 | wall-poster (coover.png) | look |
 | 9 | EXISTING (was #8) | Corridor | room-hallway | walk-right | Platforms shape authorship | — | talk |
 | 10 | EXISTING (was #9) | Study | room-study | walk-right | First book — adventure games | book-cover (quest.jpg) | look |
 | 11 | EXISTING (was #10) | Study | room-study | fade | Monty Python joke | monitor-screen (python.gif) | talk |
@@ -322,7 +327,7 @@ This spec assumes Option A. If Option B is desired, the sprite system needs a `s
 
 ### CSS
 - `css/rooms.css` — Add 6 new room template classes
-- `css/scumm.css` — Update title screen text if hardcoded
+- `css/scumm.css` — No changes needed (title text is in index.html, not CSS)
 
 ### JavaScript
 - `js/scenes.js` — Replace SCENES array with new 55-scene flow
