@@ -31,7 +31,8 @@ const Autoplay = (() => {
 
     // Listen for animation completion from iframe
     window.addEventListener('message', (e) => {
-      if (e.data === 'animation-complete' && _playing && !_animationAdvanced) {
+      if (e.data === 'animation-complete' && _playing && !_animationAdvanced
+          && Engine.getCurrentScene() === 42) {
         _animationAdvanced = true;
         Engine.nextScene();
       }

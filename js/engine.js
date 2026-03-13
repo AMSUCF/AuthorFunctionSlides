@@ -221,7 +221,7 @@ const Engine = (() => {
     room.appendChild(bg);
 
     // Template-specific overlays
-    if (scene.template === 'dark-room' || scene.template === 'ruins' || scene.template === 'ship-corridor') {
+    if (scene.template === 'dark-room' || scene.template === 'ruins') {
       const fog = document.createElement('div');
       fog.className = 'fog-overlay';
       room.appendChild(fog);
