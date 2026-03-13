@@ -50,6 +50,7 @@ class TextElement {
     this.orbitCenter = null;
     this.glitchAmount = 0;
     this.revealed = -1; // -1 = show full text; 0+ = typewriter (chars revealed)
+    this.fitWidth = false; // auto-scale to fit canvas width
     this.lerpSpeed = 0.03;
   }
 
@@ -116,6 +117,16 @@ class TextElement {
     fill(c);
     noStroke();
     textSize(this.size);
+
+    // Auto-scale text to fit within canvas with padding
+    if (this.fitWidth) {
+      let tw = textWidth(displayText);
+      let maxW = width - 80;
+      if (tw > maxW && tw > 0) {
+        textSize(this.size * (maxW / tw));
+      }
+    }
+
     text(displayText, this.x + dx, this.y + dy);
     pop();
   }
@@ -732,6 +743,7 @@ function initAct2() {
 
   // YHCHI caption — starts empty
   act2Caption = new TextElement("", width / 2, height / 2, 48, color(200, 216, 232));
+  act2Caption.fitWidth = true;
 }
 
 function drawAct2() {
@@ -882,6 +894,7 @@ function initAct3() {
       10, // start small
       color(255)
     );
+    p.fitWidth = true;
     provocations.push(p);
   }
 }
@@ -903,7 +916,7 @@ function drawAct3() {
 
   // Phase 2: AI names misbehave + multiply (act frames 150-900)
   if (actFrame > 150 && actFrame < 900) {
-    for (let i = 0; i < min(aiNames.length, 40); i++) {
+    for (let i = 0; i < min(aiNames.length, 25); i++) {
       let n = aiNames[i];
       n.revealed = -1; // show full text
       n.targetX += random(-5, 5);
@@ -920,7 +933,7 @@ function drawAct3() {
 
     // Spawn copies (multiply)
     let copyRate = mapFrame(actFrame, 300, 700);
-    if (random() < 0.03 * copyRate && aiNames.length < 40) {
+    if (random() < 0.03 * copyRate && aiNames.length < 25) {
       let source = aiNames[floor(random(min(4, aiNames.length)))];
       let copy = new TextElement(
         source.text,
@@ -983,21 +996,23 @@ function drawAct3() {
   // Phase 4: Text flood (act frames 400-1100)
   if (actFrame > 400 && actFrame < 1100) {
     let floodRate = mapFrame(actFrame, 400, 700);
-    let spawnCount = floor(floodRate * 15) + 1;
+    // Reduce flood during provocations so text stays legible
+    let dampen = actFrame > 800 ? 0.3 : 1.0;
+    let spawnCount = floor(floodRate * 8 * dampen) + 1;
     for (let i = 0; i < spawnCount; i++) {
       spawnFloodWord();
     }
-    // Some at extreme scales
-    if (random() < 0.05) {
+    // Some at extreme scales (less frequent, smaller max)
+    if (random() < 0.03) {
       let giant = new TextElement(
         ALL_VOCABULARY[floor(random(ALL_VOCABULARY.length))],
         random(width), random(height),
-        random(120, 250),
+        random(80, 160),
         color(200, 216, 232)
       );
-      giant.opacity = random(20, 60);
+      giant.opacity = random(15, 40);
       giant.targetOpacity = 0;
-      giant.lerpSpeed = 0.01;
+      giant.lerpSpeed = 0.015;
       floodWords.push(giant);
     }
   }
@@ -1005,15 +1020,15 @@ function drawAct3() {
   // Phase 5: Provocations fight through chaos (act frames 800-1350)
   if (actFrame > 800 && actFrame <= 1350) {
     let provFrame = actFrame - 800;
-    let questionsPerFrame = 120; // 2 seconds each
+    let questionsPerFrame = 130; // ~2.2 seconds each
 
     for (let i = 0; i < provocations.length; i++) {
       let qStart = i * questionsPerFrame;
       let qEnd = qStart + questionsPerFrame;
       if (provFrame >= qStart && provFrame < qEnd) {
         let growProgress = mapFrame(provFrame, qStart, qStart + 30);
-        provocations[i].size = lerp(10, 60, growProgress);
-        provocations[i].targetSize = 60;
+        provocations[i].size = lerp(10, 48, growProgress);
+        provocations[i].targetSize = 48;
         provocations[i].opacity = lerp(0, 255, growProgress);
         provocations[i].targetOpacity = 255;
         provocations[i].x = width / 2;
@@ -1021,10 +1036,21 @@ function drawAct3() {
         // Shrink away at end of window
         let shrinkProgress = mapFrame(provFrame, qEnd - 20, qEnd);
         if (shrinkProgress > 0) {
-          provocations[i].targetSize = lerp(60, 5, shrinkProgress);
+          provocations[i].targetSize = lerp(48, 5, shrinkProgress);
           provocations[i].targetOpacity = lerp(255, 0, shrinkProgress);
         }
         provocations[i].update();
+
+        // Dark backing so text cuts through chaos
+        let backOpacity = min(provocations[i].opacity, 200) * 0.7;
+        if (backOpacity > 5) {
+          noStroke();
+          fill(10, 8, 6, backOpacity);
+          rectMode(CENTER);
+          rect(width / 2, height / 2, width * 0.85, 80, 4);
+          rectMode(CORNER);
+        }
+
         provocations[i].display();
       }
     }
