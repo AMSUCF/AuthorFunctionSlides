@@ -11,7 +11,7 @@
   width: 4px;
   height: 4px;
   z-index: 10;
-  transition: left 0.6s ease-in-out;
+  transition: left 1.4s ease-in-out;
   image-rendering: pixelated;
   transform: scale(1.8);
   transform-origin: bottom center;
@@ -22,7 +22,7 @@
 }
 
 #sprite.walking {
-  transition: left 0.6s linear;
+  transition: left 1.4s linear;
 }
 
 #sprite.flip {
