@@ -68,7 +68,7 @@ const SCENES = [
     id: 4,
     room: 'The Lecture Hall',
     template: 'lecture-hall',
-    transition: 'wipe-right',
+    transition: 'fade',
     spriteX: 100,
     objects: [{
       img: 'readingstatsone.png',
@@ -166,7 +166,7 @@ const SCENES = [
     spriteX: 120,
     objects: [{
       img: 'quest.jpg',
-      type: 'book-pedestal',
+      type: 'book-cover',
       x: 500, y: 20, w: 300, h: 400,
       label: 'Adventure Games: Playing the Outsider'
     }],
@@ -725,11 +725,11 @@ const SCENES = [
     id: 43,
     room: 'Ship Corridor',
     template: 'ship-corridor',
-    transition: 'walk-right',
+    transition: 'wipe-right',
     spriteX: 580,
     objects: [{
       img: 'additions/openclaw.png',
-      type: 'monitor-screen',
+      type: 'book-cover',
       x: 370, y: 20, w: 520, h: 360,
       label: 'OpenClaw'
     }],
@@ -744,7 +744,7 @@ const SCENES = [
     spriteX: 580,
     objects: [{
       img: 'additions/moltbook.png',
-      type: 'monitor-screen',
+      type: 'book-cover',
       x: 370, y: 20, w: 520, h: 360,
       label: 'Moltbook'
     }],
@@ -863,7 +863,7 @@ const SCENES = [
     id: 51,
     room: 'The Observatory',
     template: 'observatory',
-    transition: 'fade',
+    transition: 'walk-right',
     spriteX: 200,
     objects: [{
       img: 'additions/newending.png',
@@ -882,7 +882,7 @@ const SCENES = [
     spriteX: 200,
     objects: [{
       img: 'additions/endingexcerpt.png',
-      type: 'monitor-screen',
+      type: 'wall-poster',
       x: 370, y: 20, w: 520, h: 360,
       label: 'Ending excerpt'
     }],
