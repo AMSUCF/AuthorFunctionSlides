@@ -17,6 +17,8 @@ const Engine = (() => {
       room: document.getElementById('room'),
       objects: document.getElementById('objects'),
       roomBar: document.getElementById('room-bar'),
+      roomName: document.getElementById('room-name'),
+      score: document.getElementById('score'),
       dialogue: document.getElementById('dialogue-text'),
       verbBar: document.getElementById('verb-bar'),
       overlay: document.getElementById('transition-overlay'),
@@ -244,7 +246,8 @@ const Engine = (() => {
     }
 
     // Room name bar
-    _elements.roomBar.textContent = scene.room || '';
+    _elements.roomName.textContent = scene.room || '';
+    _elements.score.textContent = 'Score: ' + _currentScene + ' of ' + (SCENES.length - 1);
 
     // Build objects
     if (scene.objects) {
