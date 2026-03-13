@@ -1804,7 +1804,7 @@
 .room-typing-office .room-bg {
   background:
     /* Green banker’s lamp shade */
-    radial-gradient(ellipse 60px 20px at 520px 234px, #3a8a4a, #2a6a3a) no-repeat,
+    radial-gradient(ellipse 60px 20px at 520px 234px, #3a8a4a, #2a6a3a 99%, transparent 100%) no-repeat,
     /* Lamp glow pool */
     radial-gradient(ellipse 100px 50px at 520px 268px, rgba(100,180,100,0.18), transparent),
     /* Lamp stem */

@@ -622,7 +622,7 @@ const SCENES = [
 
   // ===== ACT 21: THE KITCHEN =====
 
-  { // 37 - Einstein + SMBC artisanal (NEW)
+  { // 37 - Einstein (NEW)
     id: 37,
     room: 'The Kitchen',
     template: 'kitchen',
@@ -631,19 +631,29 @@ const SCENES = [
     objects: [{
       img: 'additions/einstein_howitworks.webp',
       type: 'monitor-screen',
-      x: 450, y: 50, w: 350, h: 300,
+      x: 370, y: 20, w: 520, h: 360,
       label: 'Einstein AI tool'
-    }, {
-      img: 'additions/smbc_artisanal.png',
-      type: 'wall-poster',
-      x: 850, y: 60, w: 320, h: 320,
-      label: 'SMBC artisanal'
     }],
     dialogue: "The artisanal craft of the essay, or of code. The experts would not agree on what counts as authentic authorship. Ironically, even the Einstein AI tool disappeared over a dispute about its name."
   },
 
-  { // 38 - Grammarly (NEW)
+  { // 38 - SMBC artisanal (NEW)
     id: 38,
+    room: 'The Kitchen',
+    template: 'kitchen',
+    transition: 'wipe-right',
+    spriteX: 120,
+    objects: [{
+      img: 'additions/smbc_artisanal.png',
+      type: 'wall-poster',
+      x: 380, y: 10, w: 500, h: 380,
+      label: 'SMBC artisanal'
+    }],
+    dialogue: "The artisanal essay. The artisanal code. Every new tool threatens someone's claim to craftsmanship."
+  },
+
+  { // 39 - Grammarly (NEW)
+    id: 39,
     room: 'The Kitchen',
     template: 'kitchen',
     transition: 'wipe-right',
@@ -657,8 +667,8 @@ const SCENES = [
     dialogue: "Writing tools have always positioned themselves as invisible helpers. But every tool encodes assumptions about what 'good writing' looks like."
   },
 
-  { // 39 - Distant reading (NEW)
-    id: 39,
+  { // 40 - Distant reading (NEW)
+    id: 40,
     room: 'The Kitchen',
     template: 'kitchen',
     transition: 'iris',
@@ -674,8 +684,8 @@ const SCENES = [
 
   // ===== ACT 22: THE LABORATORY =====
 
-  { // 40 - Claude author (NEW)
-    id: 40,
+  { // 41 - Claude author (NEW)
+    id: 41,
     room: 'The Laboratory',
     template: 'laboratory',
     transition: 'walk-right',
@@ -689,8 +699,8 @@ const SCENES = [
     dialogue: "The Claude author question. When a language model can produce text indistinguishable from human writing, the author function becomes newly unstable."
   },
 
-  { // 41 - Claude process (NEW)
-    id: 41,
+  { // 42 - Claude process (NEW)
+    id: 42,
     room: 'The Laboratory',
     template: 'laboratory',
     transition: 'wipe-right',
@@ -704,8 +714,8 @@ const SCENES = [
     dialogue: "What does it mean for a model to have a 'writing process'? The familiar rituals of drafting, revision, and voice take on strange new dimensions."
   },
 
-  { // 42 - p5.js animation (NEW, iframe-fullscreen)
-    id: 42,
+  { // 43 - p5.js animation (NEW, iframe-fullscreen)
+    id: 43,
     room: 'The Laboratory',
     template: 'laboratory',
     transition: 'fade',
@@ -721,8 +731,8 @@ const SCENES = [
 
   // ===== ACT 23: SHIP CORRIDOR =====
 
-  { // 43 - OpenClaw (NEW)
-    id: 43,
+  { // 44 - OpenClaw (NEW)
+    id: 44,
     room: 'Ship Corridor',
     template: 'ship-corridor',
     transition: 'wipe-right',
@@ -736,8 +746,8 @@ const SCENES = [
     dialogue: "Something is loose on this ship. Agents authoring with one another -- writing, editing, and publishing without human oversight."
   },
 
-  { // 44 - Moltbook (NEW)
-    id: 44,
+  { // 45 - Moltbook (NEW)
+    id: 45,
     room: 'Ship Corridor',
     template: 'ship-corridor',
     transition: 'wipe-right',
@@ -751,8 +761,8 @@ const SCENES = [
     dialogue: "The best of Moltbook showed what happens when AI agents collaborate on creative projects. The results were strange, compelling, and deeply unsettling."
   },
 
-  { // 45 - Claw Republic (NEW)
-    id: 45,
+  { // 46 - Claw Republic (NEW)
+    id: 46,
     room: 'Ship Corridor',
     template: 'ship-corridor',
     transition: 'iris',
@@ -766,8 +776,8 @@ const SCENES = [
     dialogue: "A republic of autonomous agents, each with its own voice and agenda. The author function fractures into something collective and distributed."
   },
 
-  { // 46 - Manifesto + Slop (NEW)
-    id: 46,
+  { // 47 - Manifesto + Slop (NEW)
+    id: 47,
     room: 'Ship Corridor',
     template: 'ship-corridor',
     transition: 'diamond',
@@ -788,8 +798,8 @@ const SCENES = [
 
   // ===== ACT 24: ANXIETY =====
 
-  { // 47 - Anxiety book (NEW)
-    id: 47,
+  { // 48 - Anxiety book (NEW)
+    id: 48,
     room: 'The Study',
     template: 'study',
     transition: 'fade',
@@ -806,8 +816,8 @@ const SCENES = [
 
   // ===== ACT 25: INSPIRATION =====
 
-  { // 48 - Loveless (old 37, template changed to office)
-    id: 48,
+  { // 49 - Loveless (old 37, template changed to office)
+    id: 49,
     room: 'The Inspiration Gallery',
     template: 'office',
     transition: 'walk-right',
@@ -822,8 +832,8 @@ const SCENES = [
     dialogue: "I turn to the two works that inspired this title. AI represents the end of a particular kind of world -- another fundamental change to the platforms of authorship that must be reckoned with. Natalie Loveless asks how we make art when that world is falling apart -- and argues that making IS the answer."
   },
 
-  { // 49 - Carol Poster + Carol (MERGED old 38+39, template: office)
-    id: 49,
+  { // 50 - Carol Poster + Carol (MERGED old 38+39, template: office)
+    id: 50,
     room: "Carol's Office",
     template: 'office',
     transition: 'wipe-right',
@@ -842,8 +852,8 @@ const SCENES = [
     dialogue: "And the Netflix show Carol and the End of the World. Carol works processing data towards no apparent end while finding joy in an Applebee's community even as the world crashes around her. She shows up. She does the work. She finds connection."
   },
 
-  { // 50 - Pluribus (old 40)
-    id: 50,
+  { // 51 - Pluribus (old 40)
+    id: 51,
     room: "Carol's Office",
     template: 'office',
     transition: 'iris',
@@ -859,8 +869,8 @@ const SCENES = [
 
   // ===== ACT 26: THE OBSERVATORY =====
 
-  { // 51 - New ending (NEW)
-    id: 51,
+  { // 52 - New ending (NEW)
+    id: 52,
     room: 'The Observatory',
     template: 'observatory',
     transition: 'walk-right',
@@ -874,8 +884,8 @@ const SCENES = [
     dialogue: "But the author function persists. It adapts, as it always has. New tools create new possibilities for who gets to speak, and how."
   },
 
-  { // 52 - Ending excerpt (NEW)
-    id: 52,
+  { // 53 - Ending excerpt (NEW)
+    id: 53,
     room: 'The Observatory',
     template: 'observatory',
     transition: 'wipe-right',
@@ -889,8 +899,8 @@ const SCENES = [
     dialogue: "The humanities are uniquely positioned to critique, shape, and deploy these systems. We've been doing this work for decades."
   },
 
-  { // 53 - Anthropic Code (NEW)
-    id: 53,
+  { // 54 - Anthropic Code (NEW)
+    id: 54,
     room: 'The Observatory',
     template: 'observatory',
     transition: 'iris',
@@ -906,8 +916,8 @@ const SCENES = [
 
   // ===== ACT 27: THANK YOU =====
 
-  { // 54 - Thank You (old 41, preserved exactly)
-    id: 54,
+  { // 55 - Thank You (old 41, preserved exactly)
+    id: 55,
     room: 'The End',
     template: 'title',
     showSprite: false,

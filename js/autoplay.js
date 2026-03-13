@@ -6,7 +6,7 @@
 
 const Autoplay = (() => {
   const TOTAL_MS = 45 * 60 * 1000; // 2,700,000ms
-  const SCENE_DURATION_OVERRIDES = { 42: 60000 }; // animation scene: 60 seconds
+  const SCENE_DURATION_OVERRIDES = { 43: 60000 }; // animation scene: 60 seconds
   let _playing = false;
   let _startTime = null;
   let _elapsed = 0;
@@ -32,7 +32,7 @@ const Autoplay = (() => {
     // Listen for animation completion from iframe
     window.addEventListener('message', (e) => {
       if (e.data === 'animation-complete' && _playing && !_animationAdvanced
-          && Engine.getCurrentScene() === 42) {
+          && Engine.getCurrentScene() === 43) {
         _animationAdvanced = true;
         Engine.nextScene();
       }
