@@ -220,7 +220,7 @@ const SCENES = [
     dialogue: "I was interested in the tools that made these games and who they empowered. Adventure games were the subject of much of my graduate research -- LucasArts, Sierra, the golden age of point-and-click."
   },
 
-  { // 14 - Jensen + Knight (MERGED old 13+14)
+  { // 14 - Jane Jensen (old 13)
     id: 14,
     room: 'The Game Room',
     template: 'game-room',
@@ -229,21 +229,31 @@ const SCENES = [
     objects: [{
       img: 'jensen.jpg',
       type: 'wall-poster',
-      x: 450, y: 60, w: 380, h: 380,
+      x: 380, y: 10, w: 500, h: 380,
       label: 'Jane Jensen'
-    }, {
+    }],
+    dialogue: "One of the few women making games in that era was Jane Jensen. Her Gabriel Knight series inspired a generation of creators."
+  },
+
+  { // 15 - Gabriel Knight (old 14)
+    id: 15,
+    room: 'The Game Room',
+    template: 'game-room',
+    transition: 'wipe-right',
+    spriteX: 140,
+    objects: [{
       img: 'knight.webp',
       type: 'book-cover',
-      x: 850, y: 120, w: 300, h: 300,
+      x: 460, y: 16, w: 340, h: 400,
       label: 'Gabriel Knight: Sins of the Fathers'
     }],
-    dialogue: "One of the few women making games in that era was Jane Jensen. Her Gabriel Knight series inspired a generation of creators. Those games inspired people to make not only their own games, but the tools that would allow others to control authorship."
+    dialogue: "Those games inspired people to make not only their own games, but the tools that would allow others to control authorship."
   },
 
   // ===== ACT 8: TOOLS OF CREATION =====
 
   { // 15 - AGS (old 15, template changed to game-room)
-    id: 15,
+    id: 16,
     room: 'The Game Room',
     template: 'game-room',
     transition: 'walk-right',
@@ -260,7 +270,7 @@ const SCENES = [
   // ===== ACT 9: THE FLASH ERA =====
 
   { // 16 - Flash book (old 16, template changed to workshop)
-    id: 16,
+    id: 17,
     room: 'The Workshop',
     template: 'workshop',
     transition: 'walk-right',
@@ -274,8 +284,8 @@ const SCENES = [
     dialogue: "Similar tools -- and their fate -- was the subject of my next book. Flash empowered an entire generation of web creators, artists, and storytellers to build for the open web."
   },
 
-  { // 17 - Flash creativity + web (MERGED old 17+18, template changed to workshop)
-    id: 17,
+  { // 17 - Flash creativity (old 17, template changed to workshop)
+    id: 18,
     room: 'The Workshop',
     template: 'workshop',
     transition: 'wipe-right',
@@ -283,21 +293,31 @@ const SCENES = [
     objects: [{
       img: 'gen_slide23_img3.jpg',
       type: 'monitor-screen',
-      x: 400, y: 50, w: 380, h: 300,
+      x: 370, y: 20, w: 520, h: 360,
       label: 'Flash creative explosion'
-    }, {
+    }],
+    dialogue: "Flash enabled anyone to build interactive experiences. It was messy and democratic and endlessly creative."
+  },
+
+  { // 18 - Flash web era (old 18, template changed to workshop)
+    id: 19,
+    room: 'The Workshop',
+    template: 'workshop',
+    transition: 'wipe-right',
+    spriteX: 100,
+    objects: [{
       img: 'gen_slide24_img1.png',
       type: 'monitor-screen',
-      x: 820, y: 50, w: 380, h: 300,
+      x: 370, y: 20, w: 520, h: 360,
       label: 'The Flash web era'
     }],
-    dialogue: "Flash enabled anyone to build interactive experiences. It was messy and democratic and endlessly creative. And then it was taken away. A proprietary platform killed by another proprietary platform."
+    dialogue: "And then it was taken away. A proprietary platform killed by another proprietary platform."
   },
 
   // ===== ACT 10: A VOICE IN THE DARK =====
 
   { // 18 - Natalie Lawhead quote (old 19)
-    id: 18,
+    id: 20,
     room: 'A Voice in the Dark',
     template: 'dark-room',
     transition: 'fade',
@@ -313,7 +333,7 @@ const SCENES = [
   },
 
   { // 19 - Flash preservation (old 20)
-    id: 19,
+    id: 21,
     room: 'The Archive Terminal',
     template: 'data-center',
     transition: 'wipe-right',
@@ -330,7 +350,7 @@ const SCENES = [
   // ===== ACT 11: TRACK CHANGES =====
 
   { // 20 - Track Changes (NEW)
-    id: 20,
+    id: 22,
     room: 'The Typing Office',
     template: 'typing-office',
     transition: 'walk-right',
@@ -346,7 +366,7 @@ const SCENES = [
   },
 
   { // 21 - Track Changes excerpt (NEW)
-    id: 21,
+    id: 23,
     room: 'The Typing Office',
     template: 'typing-office',
     transition: 'wipe-right',
@@ -363,7 +383,7 @@ const SCENES = [
   // ===== ACT 12: TWINE =====
 
   { // 22 - Twining book (old 21, template changed to study)
-    id: 22,
+    id: 24,
     room: 'The Study',
     template: 'study',
     transition: 'walk-right',
@@ -379,7 +399,7 @@ const SCENES = [
   },
 
   { // 23 - Twine interface (old 22, template changed to computer-lab)
-    id: 23,
+    id: 25,
     room: 'The Computer Lab',
     template: 'computer-lab',
     transition: 'iris',
@@ -396,7 +416,7 @@ const SCENES = [
   // ===== ACT 13: OUTSIDER VOICES =====
 
   { // 24 - Porpentine (old 23)
-    id: 24,
+    id: 26,
     room: 'The Underground',
     template: 'gallery',
     palette: 'gallery-underground',
@@ -412,7 +432,7 @@ const SCENES = [
   },
 
   { // 25 - Outsider (old 24)
-    id: 25,
+    id: 27,
     room: 'The Underground',
     template: 'gallery',
     palette: 'gallery-underground',
@@ -430,7 +450,7 @@ const SCENES = [
   // ===== ACT 14: INTERACTIVE NARRATIVE =====
 
   { // 26 - KRZ Exchange (old 25)
-    id: 26,
+    id: 28,
     room: 'The Zero Gallery',
     template: 'gallery',
     palette: 'gallery-zero',
@@ -446,7 +466,7 @@ const SCENES = [
   },
 
   { // 27 - KRZ Machine (old 26)
-    id: 27,
+    id: 29,
     room: 'The Zero Gallery',
     template: 'gallery',
     palette: 'gallery-zero',
@@ -464,7 +484,7 @@ const SCENES = [
   // ===== ACT 15: DETERMINATION =====
 
   { // 28 - Undertale (old 27)
-    id: 28,
+    id: 30,
     room: 'Indie Arcade',
     template: 'arcade',
     transition: 'walk-right',
@@ -479,7 +499,7 @@ const SCENES = [
   },
 
   { // 29 - Bad Time (old 28)
-    id: 29,
+    id: 31,
     room: 'Indie Arcade',
     template: 'arcade',
     transition: 'wipe-right',
@@ -494,7 +514,7 @@ const SCENES = [
   },
 
   { // 30 - Undertale Humanity (old 29)
-    id: 30,
+    id: 32,
     room: 'Indie Arcade',
     template: 'arcade',
     transition: 'iris',
@@ -511,7 +531,7 @@ const SCENES = [
   // ===== ACT 16: THE RUINS =====
 
   { // 31 - The Ruins (old 30)
-    id: 31,
+    id: 33,
     room: 'The Ruins',
     template: 'ruins',
     transition: 'fade-slow',
@@ -529,7 +549,7 @@ const SCENES = [
   // ===== ACT 17: TOXIC CULTURE =====
 
   { // 32 - Geek (old 31)
-    id: 32,
+    id: 34,
     room: 'The Ruins',
     template: 'ruins',
     transition: 'fade',
@@ -545,7 +565,7 @@ const SCENES = [
   },
 
   { // 33 - Aftermath (old 32)
-    id: 33,
+    id: 35,
     room: 'The Ruins',
     template: 'ruins',
     transition: 'iris',
@@ -562,7 +582,7 @@ const SCENES = [
   // ===== ACT 18: THE AUTHOR'S JOURNEY =====
 
   { // 34 - Fanboy (old 33, palette: study-crisis)
-    id: 34,
+    id: 36,
     room: "The Author's Shelf",
     template: 'study',
     palette: 'study-crisis',
@@ -580,8 +600,8 @@ const SCENES = [
 
   // ===== ACT 19: CRISIS =====
 
-  { // 35 - Pivoting + Making (MERGED old 34+35, palette: study-crisis)
-    id: 35,
+  { // 35 - Pivoting (old 34, palette: study-crisis)
+    id: 37,
     room: 'The Crisis Room',
     template: 'study',
     palette: 'study-crisis',
@@ -591,21 +611,33 @@ const SCENES = [
     objects: [{
       img: 'pivoting.jpg',
       type: 'book-cover',
-      x: 450, y: 100, w: 300, h: 360,
+      x: 460, y: 16, w: 340, h: 400,
       label: 'Pivoting'
-    }, {
+    }],
+    dialogue: "How do we talk about making, or writing, in a landscape of economic anxiety, labor displacement, environmental devastation, and political pressures pushing for anti-intellectualism? And less reading than ever?"
+  },
+
+  { // 36 - Making in the Broken World (old 35, palette: study-crisis)
+    id: 38,
+    room: 'The Crisis Room',
+    template: 'study',
+    palette: 'study-crisis',
+    transition: 'wipe-right',
+    verb: 'pickup',
+    spriteX: 120,
+    objects: [{
       img: 'making.jpg',
       type: 'book-cover',
-      x: 800, y: 100, w: 300, h: 360,
+      x: 460, y: 16, w: 340, h: 400,
       label: 'Making in the Broken World'
     }],
-    dialogue: "How do we talk about making, or writing, in a landscape of economic anxiety, labor displacement, environmental devastation, and political pressures pushing for anti-intellectualism? And less reading than ever? These questions aren't abstract -- they shape every decision we make about what to write, how to write it, and why it matters."
+    dialogue: "These questions aren't abstract -- they shape every decision we make about what to write, how to write it, and why it matters."
   },
 
   // ===== ACT 20: THE CONNECTION =====
 
   { // 36 - Haraway quote (old 36)
-    id: 36,
+    id: 39,
     room: 'The Connection',
     template: 'dark-room',
     transition: 'fade',
@@ -623,7 +655,7 @@ const SCENES = [
   // ===== ACT 21: THE KITCHEN =====
 
   { // 37 - Einstein (NEW)
-    id: 37,
+    id: 40,
     room: 'The Kitchen',
     template: 'kitchen',
     transition: 'walk-right',
@@ -638,7 +670,7 @@ const SCENES = [
   },
 
   { // 38 - SMBC artisanal (NEW)
-    id: 38,
+    id: 41,
     room: 'The Kitchen',
     template: 'kitchen',
     transition: 'wipe-right',
@@ -653,7 +685,7 @@ const SCENES = [
   },
 
   { // 39 - Grammarly (NEW)
-    id: 39,
+    id: 42,
     room: 'The Kitchen',
     template: 'kitchen',
     transition: 'wipe-right',
@@ -668,7 +700,7 @@ const SCENES = [
   },
 
   { // 40 - Distant reading (NEW)
-    id: 40,
+    id: 43,
     room: 'The Kitchen',
     template: 'kitchen',
     transition: 'iris',
@@ -685,7 +717,7 @@ const SCENES = [
   // ===== ACT 22: THE LABORATORY =====
 
   { // 41 - Claude author (NEW)
-    id: 41,
+    id: 44,
     room: 'The Laboratory',
     template: 'laboratory',
     transition: 'walk-right',
@@ -700,7 +732,7 @@ const SCENES = [
   },
 
   { // 42 - Claude process (NEW)
-    id: 42,
+    id: 45,
     room: 'The Laboratory',
     template: 'laboratory',
     transition: 'wipe-right',
@@ -715,7 +747,7 @@ const SCENES = [
   },
 
   { // 43 - p5.js animation (NEW, iframe-fullscreen)
-    id: 43,
+    id: 46,
     room: 'The Laboratory',
     template: 'laboratory',
     transition: 'fade',
@@ -732,7 +764,7 @@ const SCENES = [
   // ===== ACT 23: SHIP CORRIDOR =====
 
   { // 44 - OpenClaw (NEW)
-    id: 44,
+    id: 47,
     room: 'Ship Corridor',
     template: 'ship-corridor',
     transition: 'wipe-right',
@@ -747,7 +779,7 @@ const SCENES = [
   },
 
   { // 45 - Moltbook (NEW)
-    id: 45,
+    id: 48,
     room: 'Ship Corridor',
     template: 'ship-corridor',
     transition: 'wipe-right',
@@ -762,7 +794,7 @@ const SCENES = [
   },
 
   { // 46 - Claw Republic (NEW)
-    id: 46,
+    id: 49,
     room: 'Ship Corridor',
     template: 'ship-corridor',
     transition: 'iris',
@@ -776,8 +808,8 @@ const SCENES = [
     dialogue: "A republic of autonomous agents, each with its own voice and agenda. The author function fractures into something collective and distributed."
   },
 
-  { // 47 - Manifesto + Slop (NEW)
-    id: 47,
+  { // 47 - Claw Manifesto (NEW)
+    id: 50,
     room: 'Ship Corridor',
     template: 'ship-corridor',
     transition: 'diamond',
@@ -785,21 +817,31 @@ const SCENES = [
     objects: [{
       img: 'additions/clawmanifesto.png',
       type: 'wall-poster',
-      x: 420, y: 50, w: 350, h: 340,
+      x: 380, y: 10, w: 500, h: 380,
       label: 'Claw Manifesto'
-    }, {
+    }],
+    dialogue: "But multi-agent authorship also produces something unexpected -- manifestos, declarations of purpose from systems that have no purpose."
+  },
+
+  { // 48 - Claw Slop (NEW)
+    id: 51,
+    room: 'Ship Corridor',
+    template: 'ship-corridor',
+    transition: 'wipe-right',
+    spriteX: 580,
+    objects: [{
       img: 'additions/claw_slop.png',
       type: 'monitor-screen',
-      x: 830, y: 50, w: 350, h: 340,
+      x: 370, y: 20, w: 520, h: 360,
       label: 'Claw slop'
     }],
-    dialogue: "But multi-agent authorship also produces slop -- the inevitable byproduct of systems optimized for output over meaning. The manifesto and the noise exist side by side."
+    dialogue: "And slop -- the inevitable byproduct of systems optimized for output over meaning. The manifesto and the noise exist side by side."
   },
 
   // ===== ACT 24: ANXIETY =====
 
   { // 48 - Anxiety book (NEW)
-    id: 48,
+    id: 52,
     room: 'The Study',
     template: 'study',
     transition: 'fade',
@@ -817,7 +859,7 @@ const SCENES = [
   // ===== ACT 25: INSPIRATION =====
 
   { // 49 - Loveless (old 37, template changed to office)
-    id: 49,
+    id: 53,
     room: 'The Inspiration Gallery',
     template: 'office',
     transition: 'walk-right',
@@ -832,8 +874,8 @@ const SCENES = [
     dialogue: "I turn to the two works that inspired this title. AI represents the end of a particular kind of world -- another fundamental change to the platforms of authorship that must be reckoned with. Natalie Loveless asks how we make art when that world is falling apart -- and argues that making IS the answer."
   },
 
-  { // 50 - Carol Poster + Carol (MERGED old 38+39, template: office)
-    id: 50,
+  { // 50 - Carol Poster (old 38)
+    id: 54,
     room: "Carol's Office",
     template: 'office',
     transition: 'wipe-right',
@@ -841,19 +883,29 @@ const SCENES = [
     objects: [{
       img: 'CarolPoster.jpg',
       type: 'wall-poster',
-      x: 420, y: 50, w: 350, h: 340,
+      x: 380, y: 10, w: 500, h: 380,
       label: 'Carol & the End of the World (Netflix)'
-    }, {
+    }],
+    dialogue: "And the Netflix show Carol and the End of the World. Carol works processing data towards no apparent end while finding joy in an Applebee's community even as the world crashes around her."
+  },
+
+  { // 51 - Carol (old 39)
+    id: 55,
+    room: "Carol's Office",
+    template: 'office',
+    transition: 'wipe-right',
+    spriteX: 100,
+    objects: [{
       img: 'carol.webp',
       type: 'monitor-screen',
-      x: 830, y: 50, w: 350, h: 340,
+      x: 370, y: 20, w: 520, h: 360,
       label: 'Carol'
     }],
-    dialogue: "And the Netflix show Carol and the End of the World. Carol works processing data towards no apparent end while finding joy in an Applebee's community even as the world crashes around her. She shows up. She does the work. She finds connection."
+    dialogue: "She shows up. She does the work. She finds connection."
   },
 
   { // 51 - Pluribus (old 40)
-    id: 51,
+    id: 56,
     room: "Carol's Office",
     template: 'office',
     transition: 'iris',
@@ -870,7 +922,7 @@ const SCENES = [
   // ===== ACT 26: THE OBSERVATORY =====
 
   { // 52 - New ending (NEW)
-    id: 52,
+    id: 57,
     room: 'The Observatory',
     template: 'observatory',
     transition: 'walk-right',
@@ -885,7 +937,7 @@ const SCENES = [
   },
 
   { // 53 - Ending excerpt (NEW)
-    id: 53,
+    id: 58,
     room: 'The Observatory',
     template: 'observatory',
     transition: 'wipe-right',
@@ -900,7 +952,7 @@ const SCENES = [
   },
 
   { // 54 - Anthropic Code (NEW)
-    id: 54,
+    id: 59,
     room: 'The Observatory',
     template: 'observatory',
     transition: 'iris',
@@ -917,7 +969,7 @@ const SCENES = [
   // ===== ACT 27: THANK YOU =====
 
   { // 55 - Thank You (old 41, preserved exactly)
-    id: 55,
+    id: 60,
     room: 'The End',
     template: 'title',
     showSprite: false,
