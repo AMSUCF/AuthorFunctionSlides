@@ -23,9 +23,9 @@ const SCENES = [
   { // 1 - Foucault quote
     id: 1,
     room: 'The Library',
-    template: 'dark-room',
-    transition: 'fade',
-    verb: 'talk',
+    template: 'library',
+    transition: 'iris',
+    verb: 'look',
     spriteX: 180,
     objects: [{
       type: 'wall-text',
@@ -39,7 +39,7 @@ const SCENES = [
   { // 2 - Ted Nelson quote
     id: 2,
     room: 'The Library',
-    template: 'dark-room',
+    template: 'library',
     transition: 'fade',
     verb: 'talk',
     spriteX: 180,
@@ -332,7 +332,7 @@ const SCENES = [
   { // 20 - Track Changes (NEW)
     id: 20,
     room: 'The Typing Office',
-    template: 'office',
+    template: 'typing-office',
     transition: 'walk-right',
     verb: 'pickup',
     spriteX: 100,
@@ -348,7 +348,7 @@ const SCENES = [
   { // 21 - Track Changes excerpt (NEW)
     id: 21,
     room: 'The Typing Office',
-    template: 'office',
+    template: 'typing-office',
     transition: 'wipe-right',
     spriteX: 100,
     objects: [{
@@ -625,7 +625,7 @@ const SCENES = [
   { // 37 - Einstein + SMBC artisanal (NEW)
     id: 37,
     room: 'The Kitchen',
-    template: 'workshop',
+    template: 'kitchen',
     transition: 'walk-right',
     spriteX: 120,
     objects: [{
@@ -645,7 +645,7 @@ const SCENES = [
   { // 38 - Grammarly (NEW)
     id: 38,
     room: 'The Kitchen',
-    template: 'workshop',
+    template: 'kitchen',
     transition: 'wipe-right',
     spriteX: 120,
     objects: [{
@@ -660,7 +660,7 @@ const SCENES = [
   { // 39 - Distant reading (NEW)
     id: 39,
     room: 'The Kitchen',
-    template: 'workshop',
+    template: 'kitchen',
     transition: 'iris',
     spriteX: 120,
     objects: [{
@@ -677,7 +677,7 @@ const SCENES = [
   { // 40 - Claude author (NEW)
     id: 40,
     room: 'The Laboratory',
-    template: 'data-center',
+    template: 'laboratory',
     transition: 'walk-right',
     spriteX: 620,
     objects: [{
@@ -692,7 +692,7 @@ const SCENES = [
   { // 41 - Claude process (NEW)
     id: 41,
     room: 'The Laboratory',
-    template: 'data-center',
+    template: 'laboratory',
     transition: 'wipe-right',
     spriteX: 620,
     objects: [{
@@ -707,7 +707,7 @@ const SCENES = [
   { // 42 - p5.js animation (NEW, iframe-fullscreen)
     id: 42,
     room: 'The Laboratory',
-    template: 'data-center',
+    template: 'laboratory',
     transition: 'fade',
     spriteX: 620,
     objects: [{
@@ -724,7 +724,7 @@ const SCENES = [
   { // 43 - OpenClaw (NEW)
     id: 43,
     room: 'Ship Corridor',
-    template: 'hallway',
+    template: 'ship-corridor',
     transition: 'walk-right',
     spriteX: 580,
     objects: [{
@@ -739,7 +739,7 @@ const SCENES = [
   { // 44 - Moltbook (NEW)
     id: 44,
     room: 'Ship Corridor',
-    template: 'hallway',
+    template: 'ship-corridor',
     transition: 'wipe-right',
     spriteX: 580,
     objects: [{
@@ -754,7 +754,7 @@ const SCENES = [
   { // 45 - Claw Republic (NEW)
     id: 45,
     room: 'Ship Corridor',
-    template: 'hallway',
+    template: 'ship-corridor',
     transition: 'iris',
     spriteX: 580,
     objects: [{
@@ -769,7 +769,7 @@ const SCENES = [
   { // 46 - Manifesto + Slop (NEW)
     id: 46,
     room: 'Ship Corridor',
-    template: 'hallway',
+    template: 'ship-corridor',
     transition: 'diamond',
     spriteX: 580,
     objects: [{
@@ -862,7 +862,7 @@ const SCENES = [
   { // 51 - New ending (NEW)
     id: 51,
     room: 'The Observatory',
-    template: 'dark-room',
+    template: 'observatory',
     transition: 'fade',
     spriteX: 200,
     objects: [{
@@ -877,7 +877,7 @@ const SCENES = [
   { // 52 - Ending excerpt (NEW)
     id: 52,
     room: 'The Observatory',
-    template: 'dark-room',
+    template: 'observatory',
     transition: 'wipe-right',
     spriteX: 200,
     objects: [{
@@ -892,7 +892,7 @@ const SCENES = [
   { // 53 - Anthropic Code (NEW)
     id: 53,
     room: 'The Observatory',
-    template: 'dark-room',
+    template: 'observatory',
     transition: 'iris',
     spriteX: 200,
     objects: [{
