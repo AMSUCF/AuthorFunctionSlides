@@ -20,6 +20,13 @@ const Preloader = (() => {
       }
     }
 
+    // Also preload sprite frames
+    images.add('sprites/walk1.png');
+    images.add('sprites/walk2.png');
+    images.add('sprites/walk3.png');
+    images.add('sprites/walk4.png');
+    images.add('sprites/walk5.png');
+
     const imgList = [...images];
     const total = imgList.length;
 

@@ -29,11 +29,11 @@ const SCENES = [
     spriteX: 180,
     objects: [{
       type: 'wall-text',
-      x: 200, y: 60, w: 750,
+      x: 420, y: 60, w: 750,
       text: "\"The 'author-function' is not universal or constant in all discourse. Even within our civilization, the same types of texts have not always required authors; there was a time when those texts which we now call 'literary' (stories, folk tales, epics and tragedies) were accepted, circulated and valorized without any questions about the identity of their author.\"",
       attr: "-- Michel Foucault, 'What Is an Author?' (1969)"
     }],
-    dialogue: "You enter a vast library. On the wall, a passage catches your eye -- words written over half a century ago that feel newly urgent."
+    dialogue: "You enter a library that still has some print books. On the wall, a passage invites you to contemplate how they were written."
   },
 
   { // 2 - Ted Nelson quote
@@ -45,23 +45,28 @@ const SCENES = [
     spriteX: 180,
     objects: [{
       type: 'wall-text',
-      x: 200, y: 60, w: 750,
+      x: 420, y: 60, w: 750,
       text: "\"Computers don't actually think. You just think they think. (We think.)\"",
       attr: '-- Ted Nelson'
     }],
-    dialogue: "Another inscription, from a different era of computing. A reminder of what machines do and don't do."
+    dialogue: "On another wall, another inscription from the early days of hypertext, but somehow timely."
   },
 
   // ===== ACT 2: ARRIVAL =====
 
-  { // 3 - Lecture Hall intro (dialogue only from old 2)
+  { // 3 - Textpocalypse
     id: 3,
     room: 'The Lecture Hall',
     template: 'lecture-hall',
     transition: 'walk-right',
     spriteX: 100,
-    objects: [],
-    dialogue: "The implied follow-up -- does anyone read academic monographs? -- points to a broader cultural anxiety. The forms of writing we celebrate tonight are all, we are told, suffering from a decline in audience."
+    objects: [{
+      img: 'textpocalypse.png',
+      type: 'monitor-screen',
+      x: 320, y: 34, w: 600, h: 336,
+      label: 'Textpocalypse (Kirschenbaum 2023)'
+    }],
+    dialogue: "Matt Kirschenbaum has noted that LLMs \"have brought something like autocomplete to the entirety of the internet\" and that our relationship with writing, and reading, has fundamentally changed."
   },
 
   { // 4 - Reading Stats 1
@@ -76,7 +81,7 @@ const SCENES = [
       x: 320, y: 34, w: 600, h: 336,
       label: 'Reading statistics (YouGov 2025)'
     }],
-    dialogue: "You arrive at the University of Central Florida on a warm Florida evening. Tonight's Faculty Author Celebration asks a question you are frequently asked: Why do you keep writing books?"
+    dialogue: "The flood of AI-generated text into spaces previously assumed to be authored by humans has brought fundamental questions about the future of art, literature, culture, and labor. Why do we keep writing books?"
   },
 
   { // 5 - Reading Stats 2 (old 3)
@@ -101,7 +106,7 @@ const SCENES = [
     room: 'The Data Center',
     template: 'data-center',
     transition: 'walk-right',
-    spriteX: 620,
+    spriteX: 950,
     objects: [{
       img: 'libgen.png',
       type: 'monitor-screen',
@@ -116,7 +121,7 @@ const SCENES = [
     room: 'The Data Center',
     template: 'data-center',
     transition: 'iris',
-    spriteX: 620,
+    spriteX: 950,
     objects: [{
       img: 'gen_slide21_img2.png',
       type: 'monitor-screen',
@@ -243,8 +248,8 @@ const SCENES = [
     spriteX: 140,
     objects: [{
       img: 'knight.webp',
-      type: 'book-cover',
-      x: 460, y: 16, w: 340, h: 400,
+      type: 'monitor-screen',
+      x: 380, y: 10, w: 500, h: 380,
       label: 'Gabriel Knight: Sins of the Fathers'
     }],
     dialogue: "Those games inspired people to make not only their own games, but the tools that would allow others to control authorship."
@@ -337,7 +342,7 @@ const SCENES = [
     room: 'The Archive Terminal',
     template: 'data-center',
     transition: 'wipe-right',
-    spriteX: 620,
+    spriteX: 950,
     objects: [{
       img: 'gen_slide26_img1.png',
       type: 'monitor-screen',
@@ -351,7 +356,7 @@ const SCENES = [
 
   { // 20 - Track Changes (NEW)
     id: 22,
-    room: 'The Typing Office',
+    room: 'The Word Processor',
     template: 'typing-office',
     transition: 'walk-right',
     verb: 'pickup',
@@ -359,7 +364,7 @@ const SCENES = [
     objects: [{
       img: 'additions/trackchanges.jpg',
       type: 'book-pedestal',
-      x: 500, y: 20, w: 300, h: 400,
+      x: 700, y: 20, w: 300, h: 400,
       label: 'Track Changes'
     }],
     dialogue: "Every tool changes our writing. From the printing press to the typewriter to the word processor -- each technology reshapes not just how we write, but what we write."
@@ -367,14 +372,14 @@ const SCENES = [
 
   { // 21 - Track Changes excerpt (NEW)
     id: 23,
-    room: 'The Typing Office',
+    room: 'The Word Processor',
     template: 'typing-office',
     transition: 'wipe-right',
     spriteX: 100,
     objects: [{
       img: 'additions/trackchanges_excerpt.png',
       type: 'monitor-screen',
-      x: 370, y: 20, w: 520, h: 360,
+      x: 550, y: 20, w: 520, h: 360,
       label: 'Track Changes excerpt'
     }],
     dialogue: "Track Changes explored how word processors shaped literature itself -- from the way we draft to the way we think about revision. Now the tools are writing back."
@@ -462,7 +467,7 @@ const SCENES = [
       x: 380, y: 10, w: 520, h: 380,
       label: 'Kentucky Route Zero'
     }],
-    dialogue: "This fascination with the type of stories that technology enables has continued to be at the heart of my work. Kentucky Route Zero is a story of workers displaced by machines -- a cycle that replays across every era of technological change. Magical realism made painfully relevant."
+    dialogue: "This fascination with the type of stories that technology enables has continued to be at the heart of my work. Kentucky Route Zero is a story of workers displaced by machines -- a cycle that replays across every era of technological change."
   },
 
   { // 27 - KRZ Machine (old 26)

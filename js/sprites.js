@@ -1,55 +1,85 @@
 /* ============================================
    Character Sprite Controller
-   CSS pixel-art professor walk animation
+   Image-based sprite with walk cycle frames
+   Pre-caches all frames to reduce memory churn
    ============================================ */
 
 const Sprite = (() => {
-  let _el = null;
+  let _container = null;
+  let _img = null;
   let _frame = 'idle';
   let _walkInterval = null;
   let _visible = true;
 
+  // Frame sources
+  const FRAME_SRCS = {
+    idle:  'sprites/walk1.png',  // front-facing standing
+    walk1: 'sprites/walk2.png',  // profile stride 1
+    walk2: 'sprites/walk3.png',  // profile stride 2
+    walk3: 'sprites/walk4.png',  // profile stride 3
+    walk4: 'sprites/walk5.png',  // profile stride 4
+  };
+
+  // Pre-cached Image elements (set during init)
+  const _cache = {};
+
   function init(el) {
-    _el = el;
-    setFrame('idle');
+    _container = el;
+
+    // Pre-cache all frames as Image objects
+    for (const [key, src] of Object.entries(FRAME_SRCS)) {
+      const img = new Image();
+      img.src = src;
+      _cache[key] = src;
+    }
+
+    // Create the single img element
+    _img = document.createElement('img');
+    _img.src = FRAME_SRCS.idle;
+    _img.alt = '';
+    _img.draggable = false;
+    _container.appendChild(_img);
   }
 
   function setFrame(frame) {
+    if (_frame === frame) return;
     _frame = frame;
-    // Only remove frame classes, preserve flip/walking/hidden
-    _el.classList.remove('frame-idle', 'frame-walk1', 'frame-walk2');
-    _el.classList.add('frame-' + frame);
+    if (_img && _cache[frame]) {
+      _img.src = _cache[frame];
+    }
   }
 
   function show(x) {
     _visible = true;
-    _el.classList.remove('hidden');
+    _container.classList.remove('hidden');
     if (typeof x === 'number') {
-      _el.style.left = x + 'px';
+      _container.style.left = x + 'px';
     }
     setFrame('idle');
   }
 
   function hide() {
     _visible = false;
-    _el.classList.add('hidden');
+    _container.classList.add('hidden');
     if (_walkInterval) {
       clearInterval(_walkInterval);
       _walkInterval = null;
     }
   }
 
-  /** Start walk animation (toggling frames). */
+  /** Start walk animation cycling through profile walk frames only. */
   function startWalk() {
-    let toggle = true;
+    const walkFrames = ['walk1', 'walk2', 'walk3', 'walk4'];
+    let idx = 0;
     if (_walkInterval) {
       clearInterval(_walkInterval);
       _walkInterval = null;
     }
-    setFrame('walk1'); // immediately show side-facing walk frame
+    _frame = ''; // force update
+    setFrame(walkFrames[0]);
     _walkInterval = setInterval(() => {
-      toggle = !toggle;
-      setFrame(toggle ? 'walk1' : 'walk2');
+      idx = (idx + 1) % walkFrames.length;
+      setFrame(walkFrames[idx]);
     }, 200);
   }
 
@@ -58,68 +88,71 @@ const Sprite = (() => {
       clearInterval(_walkInterval);
       _walkInterval = null;
     }
-    if (_visible) setFrame('idle');
+    if (_visible) {
+      _frame = ''; // force update
+      setFrame('idle');
+    }
   }
 
-  /** Animate walking to edge, returns promise. Direction: 'right' or 'left'. */
   function walkOut(direction) {
     return new Promise((resolve) => {
       startWalk();
-      _el.classList.add('walking');
+      _container.classList.add('walking');
       if (direction === 'left') {
-        _el.classList.add('flip');
+        _container.classList.add('flip');
       } else {
-        _el.classList.remove('flip');
+        _container.classList.remove('flip');
       }
       const target = direction === 'right' ? 1300 : -80;
-      _el.style.left = target + 'px';
+      _container.style.left = target + 'px';
 
-      // Wait for CSS transition to complete
       setTimeout(() => {
         stopWalk();
-        _el.classList.remove('walking');
+        _container.classList.remove('walking');
         resolve();
       }, 1450);
     });
   }
 
-  /** Animate walking in from edge, returns promise. */
   function walkIn(fromDirection, targetX) {
     return new Promise((resolve) => {
-      // Start off-screen
-      _el.style.transition = 'none';
-      _el.style.left = (fromDirection === 'left' ? -80 : 1300) + 'px';
+      _visible = true;
+      _container.classList.remove('hidden');
+
+      // Position off-screen instantly
+      _container.style.transition = 'none';
+      _container.classList.remove('flip', 'walking');
+      _container.style.left = (fromDirection === 'left' ? -80 : 1300) + 'px';
       if (fromDirection === 'right') {
-        _el.classList.add('flip');
+        _container.classList.add('flip');
       } else {
-        _el.classList.remove('flip');
+        _container.classList.remove('flip');
       }
 
-      // Force reflow
-      void _el.offsetWidth;
+      void _container.offsetWidth;
 
-      // Animate to target
-      _el.style.transition = '';
+      // Start walk cycle and animate to target
+      _container.style.transition = '';
       startWalk();
-      _el.classList.add('walking');
-      _el.style.left = targetX + 'px';
+      _container.classList.add('walking');
+      _container.style.left = targetX + 'px';
 
       setTimeout(() => {
-        stopWalk();
-        _el.classList.remove('walking', 'flip');
+        stopWalk();  // sets idle (front-facing)
+        _container.classList.remove('walking', 'flip');
         resolve();
       }, 1450);
     });
   }
 
-  /** Place sprite instantly at position (no animation). */
   function place(x) {
     _visible = true;
-    _el.classList.remove('hidden', 'flip', 'walking');
-    _el.style.transition = 'none';
-    _el.style.left = x + 'px';
-    void _el.offsetWidth;
-    _el.style.transition = '';
+    _container.classList.remove('hidden', 'flip', 'walking');
+    _container.style.transition = 'none';
+    _container.style.left = x + 'px';
+    void _container.offsetWidth;
+    _container.style.transition = '';
+    _frame = ''; // force update
     setFrame('idle');
   }
 

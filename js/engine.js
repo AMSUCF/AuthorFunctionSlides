@@ -8,6 +8,7 @@ const Engine = (() => {
   let _currentScene = -1;
   let _elements = {};
   let _debugMode = false;
+  let _pendingScene = null;
 
   function init() {
     // Cache DOM elements
@@ -72,10 +73,8 @@ const Engine = (() => {
   // --- Keyboard + Tap Navigation ---
   function bindInput() {
     document.addEventListener('keydown', (e) => {
-      if (Transitions.isLocked()) return;
-
       // Title screen: any key advances
-      if (_currentScene === 0) {
+      if (_currentScene === 0 && !Transitions.isLocked()) {
         if (e.key === 'd' || e.key === 'D') {
           toggleDebug();
           return;
@@ -90,13 +89,13 @@ const Engine = (() => {
         case ' ':
         case 'PageDown':
           e.preventDefault();
-          nextScene();
+          requestScene(_currentScene + 1);
           break;
         case 'ArrowLeft':
         case 'ArrowUp':
         case 'PageUp':
           e.preventDefault();
-          prevScene();
+          requestScene(_currentScene - 1);
           break;
         case 'd':
         case 'D':
@@ -104,41 +103,45 @@ const Engine = (() => {
           break;
         case 'Home':
           e.preventDefault();
-          goToScene(0);
+          requestScene(0);
           break;
         case 'End':
           e.preventDefault();
-          goToScene(SCENES.length - 1);
+          requestScene(SCENES.length - 1);
           break;
       }
     });
 
     // Tap / click on viewport advances scenes
     _elements.viewport.addEventListener('click', (e) => {
-      if (Transitions.isLocked()) return;
-
       // Don't intercept clicks on links or buttons
       if (e.target.closest('a, button')) return;
 
-      if (_currentScene === 0) {
+      if (_currentScene === 0 && !Transitions.isLocked()) {
         goToScene(1);
         return;
       }
 
-      nextScene();
+      requestScene(_currentScene + 1);
     });
   }
 
-  function nextScene() {
-    if (_currentScene < SCENES.length - 1) {
-      goToScene(_currentScene + 1);
+  /** Queue a scene; if mid-transition, it will play after current finishes. */
+  function requestScene(index) {
+    if (index < 0 || index >= SCENES.length) return;
+    if (Transitions.isLocked()) {
+      _pendingScene = index;
+      return;
     }
+    goToScene(index);
+  }
+
+  function nextScene() {
+    requestScene(_currentScene + 1);
   }
 
   function prevScene() {
-    if (_currentScene > 0) {
-      goToScene(_currentScene - 1);
-    }
+    requestScene(_currentScene - 1);
   }
 
   function toggleDebug() {
@@ -188,6 +191,13 @@ const Engine = (() => {
 
     // Typewriter dialogue
     await Typewriter.type(scene.dialogue, scene.typewriterSpeed || 25);
+
+    // If a scene was queued during this transition, go there now
+    if (_pendingScene !== null) {
+      const next = _pendingScene;
+      _pendingScene = null;
+      goToScene(next);
+    }
   }
 
   // --- Room Building ---
