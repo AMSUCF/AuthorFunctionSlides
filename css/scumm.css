@@ -8,7 +8,7 @@
   --game-height: 720;
   --font-main: 'Press Start 2P', monospace;
   --room-bar-h: 28px;
-  --dialogue-h: 100px;
+  --dialogue-h: 124px;
   --verb-bar-h: 52px;
   --viewport-h: calc(720px - var(--room-bar-h) - var(--dialogue-h) - var(--verb-bar-h));
   --text-color: #f0e8d0;
@@ -305,7 +305,7 @@
 }
 
 #dialogue-text {
-  max-height: 76px;
+  max-height: 100px;
   overflow: hidden;
 }
 

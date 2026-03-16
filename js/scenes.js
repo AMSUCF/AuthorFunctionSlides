@@ -157,7 +157,7 @@ const SCENES = [
     transition: 'walk-right',
     spriteX: 580,
     objects: [],
-    dialogue: "It's not the hypertext novel, but indeed all of the web and digital writing and interactivity -- the ways that we consume and read text -- that have shifted the cultural role of the novel, and shifted where people do creative writing. AI is a tool that could enter into that space and change our relationship with the platforms on which we now do most of our authorship and our reading."
+    dialogue: "It's not the hypertext novel, but indeed all of the web and digital writing and interactivity -- the ways that we consume and read text -- that have shifted the cultural role of the novel, and shifted where people do creative writing. AI could enter that space and change our relationship with the platforms on which we do most of our authorship and reading."
   },
 
   // ===== ACT 6: THE FIRST BOOK =====
@@ -205,7 +205,7 @@ const SCENES = [
       x: 400, y: 80, w: 480, h: 320,
       label: 'Alice for the iPad (2010)'
     }],
-    dialogue: "For a moment, there was real excitement about the iPad as something that people who do creative work could build applications for. It turned out to be depressingly wrong -- not because the idea was bad, but because the Apple App Store drove individual creatives out with expensive fees and demands to constantly rebuild for the latest devices. Almost nothing is playable or recoverable now."
+    dialogue: "For a moment, there was real excitement about the iPad as something that creative people could build applications for. It turned out to be depressingly wrong -- not because the idea was bad, but because the App Store drove individual creatives out with expensive fees and demands to constantly rebuild for the latest devices. Almost nothing is playable now."
   },
 
   // ===== ACT 7: THE GAME ROOM =====
@@ -382,7 +382,7 @@ const SCENES = [
       x: 550, y: 20, w: 520, h: 360,
       label: 'Track Changes excerpt'
     }],
-    dialogue: "Kirschenbaum's Track Changes is a chronicle of how Coover was right. The novel was changing fundamentally -- not dead, but certainly reshaped by the word processor. You can hear the echoes from a 1983 WordPerfect ad: 'With a word processing system, you can actually produce a perfect document.' We're hearing that now again. The new word processors are also promising us a perfect document."
+    dialogue: "Kirschenbaum's Track Changes is a chronicle of how Coover was right. The novel was changing fundamentally -- not dead, but reshaped by the word processor. You can hear the echoes from a 1983 WordPerfect ad: 'With a word processing system, you can actually produce a perfect document.' We're hearing that now again. The new word processors are also promising us a perfect document."
   },
 
   // ===== ACT 12: TWINE =====
@@ -998,7 +998,7 @@ const SCENES = [
       x: 370, y: 20, w: 520, h: 360,
       label: 'itch.io AI Generated games (36,209 results)'
     }],
-    dialogue: "And already, over 36,000 creative, weird, experimental works are tagged as AI-generated on itch.io -- horror games, visual novels, dating sims, adventures. The same types of fascinating and weird authored works that AGS and Flash and Twine enabled, now authored through agents. The democratization of procedural authorship continues, in forms we are only beginning to reckon with."
+    dialogue: "And already, over 36,000 creative, weird, experimental works are tagged as AI-generated on itch.io -- horror games, visual novels, dating sims, adventures. The same types of works that AGS and Flash and Twine enabled, now authored through agents. The democratization of procedural authorship continues, in forms we are only beginning to reckon with."
   },
 
   // ===== ACT 27: THANK YOU =====
