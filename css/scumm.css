@@ -456,6 +456,15 @@
   margin-bottom: 32px;
 }
 
+.title-subtitle {
+  color: #fffacd;
+  font-size: 11px;
+}
+
+.title-sub strong {
+  color: #d0d0e0;
+}
+
 .title-prompt {
   font-size: 10px;
   color: var(--text-color);
