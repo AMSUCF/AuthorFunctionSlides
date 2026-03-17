@@ -606,8 +606,7 @@ const SCENES = [
   { // 37 - Palantir (was Fanboy)
     id: 37,
     room: "The Author's Shelf",
-    template: 'study',
-    palette: 'study-crisis',
+    template: 'ruins',
     transition: 'walk-right',
     spriteX: 120,
     objects: [{
@@ -687,7 +686,7 @@ const SCENES = [
       x: 370, y: 20, w: 520, h: 360,
       label: 'Einstein AI tool'
     }],
-    dialogue: "Ironically, the type of authorship most in crisis today is code: agents are better at writing and crafting computational systems than most of us already. But even in those systems, the history of games and electronic literatures reminds us how critical the author remains."
+    dialogue: "Today, writing - and learning - is in an inflection point of crisis. Ads for systems like Einstein AI (built on technologies like OpenClaw) promise a dystopian future in which the author or student's labor can be eliminated."
   },
 
   { // 42 - SMBC artisanal
@@ -702,7 +701,7 @@ const SCENES = [
       x: 380, y: 10, w: 500, h: 380,
       label: 'SMBC artisanal'
     }],
-    dialogue: "The world of knitting artisanal socks might have more future viability than the world of code. But what we're experiencing and exploring is the ways in which the human touch is still possible -- and procedural."
+    dialogue: "Ironically, the type of authorship most in crisis today is code: agents are better at writing and crafting computational systems than most of us already. But even in those systems, the history of games and electronic literatures reminds us how critical the author remains."
   },
 
   // ===== ACT 23: THE LABORATORY =====
@@ -716,7 +715,7 @@ const SCENES = [
     objects: [{
       img: 'additions/claude_author.png',
       type: 'monitor-screen',
-      x: 370, y: 20, w: 520, h: 360,
+      x: 260, y: 20, w: 700, h: 380,
       label: 'Claude author'
     }],
     dialogue: "Today's agents work in harnesses, such as Claude Code, that are now built using these same tools. This type of supervised system is already a major force in software development."
@@ -731,7 +730,7 @@ const SCENES = [
     objects: [{
       img: 'additions/agents.jpg',
       type: 'monitor-screen',
-      x: 370, y: 20, w: 520, h: 360,
+      x: 260, y: 20, w: 700, h: 380,
       label: 'LLM Agents'
     }],
     dialogue: "Simon Willison has defined agents simply: \"An LLM agent runs tools in a loop to achieve a goal.\" These goals can be highly complex."
@@ -746,7 +745,7 @@ const SCENES = [
     objects: [{
       img: 'additions/claude_process.png',
       type: 'monitor-screen',
-      x: 370, y: 20, w: 520, h: 360,
+      x: 260, y: 20, w: 700, h: 380,
       label: 'Claude process'
     }],
     dialogue: "These agents work through a process that involves collaboration and feedback, but can result in substantial lines of code, text, and interaction that no human has directly touched."
